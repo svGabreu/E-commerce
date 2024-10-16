@@ -1,5 +1,5 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-def home(request):
-    return HttpResponse('Olá mundo');
+def index(request):
+    return render(request, "adm/index.html");
