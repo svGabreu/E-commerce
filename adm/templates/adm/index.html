@@ -50,9 +50,9 @@
  </tr>
  </thead>
  <tbody>
- {% for todo in todos %}
+ {% for adm in index %}
  <tr>
- <th scope="row">{{ todo.id }}</th>
+ <th scope="row">{{ adm.id }}</th>
  <td>{{ todo.title }}</td>
  <td>{{ todo.created_at }}</td>
  <td>{{ todo.deadline }}</td>
@@ -72,5 +72,11 @@
  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
  crossorigin="anonymous"
  ></script>
+ <h1>Novo Produto</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit">Salvar</button>
+</form>
  </body>
 </html>

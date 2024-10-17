@@ -1,23 +1,24 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from .models import Adm
+from .models import Categoria, Produto, Foto
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 
 class admListView(ListView):
-    model = Adm
+    model = Categoria, Produto, Foto
 
 class admCreateView(CreateView):
-    model = Adm
+    model = Categoria, Produto, Foto
     fields=["title","deadline"]
     success_url = reverse_lazy("")
     
 class admUpdateView(UpdateView):
-    model = Adm
+    model = Categoria, Produto, Foto
 
 class admDeleteView(DeleteView):
-    model = Adm
+    model = Categoria, Produto, Foto
 
 
 def index(request):
-    return render(request, "adm/index.html")
+    adm = Categoria, Produto, Foto.objects.all()
+    return render(request, "adm/index.html",{"adm":adm})
