@@ -1,12 +1,17 @@
+# setup/urls.py
 from django.contrib import admin
 from django.urls import path
-#from adm.views import index
-from adm.views import admListView, admCreateView, admUpdateView, admDeleteView
-from django.urls import reverse_lazy
+from todos.views import ProdutoListView, ProdutoCreateView, ProdutoUpdateView, ProdutoDeleteView, CategoriaListView, CategoriaCreateView, CategoriaUpdateView, CategoriaDeleteView
 
 urlpatterns = [
-    path("", admListView.as_view(),name='adm_list'),
-    path("create", admCreateView.as_view(),name='adm_create'),
-    path("update/<int:pk>/", admUpdateView.as_view(),name='adm_update'),
-    path("delete/<int:pk>/", admDeleteView.as_view(),name='adm_delete')
+    path('admin/', admin.site.urls),
+    path('', ProdutoListView.as_view(), name='produto_list'),
+    path('create/', ProdutoCreateView.as_view(), name='produto_create'),
+    path('update/<int:pk>/', ProdutoUpdateView.as_view(), name='produto_update'),
+    path('delete/<int:pk>/', ProdutoDeleteView.as_view(), name='produto_delete'),
+
+    path('categorias/', CategoriaListView.as_view(), name='categoria_list'),
+    path('categoria/create/', CategoriaCreateView.as_view(), name='categoria_create'),
+    path('categoria/update/<int:pk>/', CategoriaUpdateView.as_view(), name='categoria_update'),
+    path('categoria/delete/<int:pk>/', CategoriaDeleteView.as_view(), name='categoria_delete'),  # nova rota para deletar categoria
 ]
