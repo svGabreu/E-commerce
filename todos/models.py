@@ -11,6 +11,7 @@ class Categoria(models.Model):
 class Produto(models.Model):
     nome = models.CharField(verbose_name="Nome", max_length=100, null=False, blank=False)
     descricao = models.TextField(verbose_name="Descrição", null=False, blank=False)  # Usar TextField para descrições mais longas
+    quantidade = models.BigIntegerField(verbose_name="Quantidade", null=False, blank=False)
     preco = models.DecimalField(verbose_name="Preço", max_digits=10, decimal_places=2, null=False)  # Usar DecimalField para preço
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, related_name="categoria")
     created_at = models.DateTimeField(verbose_name="Criado em", auto_now_add=True)
